@@ -1,0 +1,44 @@
+<% layout('layouts/boilerplate') %>
+    <div class="row">
+        <h1 class="text-center">Edit Campground</h1>
+        <div class="col-6 offset-3">
+            <form action="/campgrounds/<%=foundCamp._id %>?_method=PATCH" method="POST" novalidate
+                class="validated-form">
+                <div>
+                    <div class="mb-3">
+                        <label class="form-label" for="title">Title</label>
+                        <input class="form-control" type="text" id="title" name="campground[title]" required
+                            value="<%= foundCamp.title %>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="location">Location</label>
+                        <input class="form-control" type="text" id="location" name="campground[location]" required
+                            value="<%= foundCamp.location %>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="image">Image URL</label>
+                        <input class="form-control" type="text" id="image" required name="campground[image]"
+                            value="<%= foundCamp.image %>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="price">Price</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">$</span>
+                            <input class="form-control" type="text" id="price" required aria-label="price"
+                                placeholder="0.00" name="campground[price]" value="<%= foundCamp.price %>">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="description">Description</label>
+                        <textarea class="form-control" type="text" id="description" name="campground[description]"
+                            required><%= foundCamp.description %></textarea>
+                    </div>
+                    <button class="btn btn-success mb-3">Save Campground</button>
+                </div>
+                <a href="/campgrounds/<%= foundCamp._id %>">Back To Campground</a>
+
+            </form>
+        </div>
+    </div>
